@@ -11,7 +11,6 @@ var rename = require("gulp-rename");
 var spritesmith = require("gulp.spritesmith");
 
 //js
-var concat = require("gulp-concat");
 var uglify = require("gulp-uglify");
 //ES2015
 var source = require('vinyl-source-stream');
@@ -26,6 +25,7 @@ var notify = require('gulp-notify');
 var plumber = require('gulp-plumber');
 var browserSync = require("browser-sync");
 var runSequence = require("run-sequence");
+var watch = require('gulp-watch');
 
 //ディレクトリを取得
 var fs = require("fs");
