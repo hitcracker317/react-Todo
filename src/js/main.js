@@ -1,17 +1,18 @@
 import {createStore} from "redux"; //redux導入
 import {addTodo, toggleTodo, filerTodo} from "./action/todo.js"; //外部ファイルのメソッドをインポート
+import todoApp from "./reducer/todo.js"; //reducerを受け取る
 
 
-let store = createStore(() => {
-  return "Hello !!!";
-});
+let store = createStore(todoApp) //ReducerをStoreにセット
 
 onload = function(){
 
   //TODO追加
   const addTodoContent = document.querySelector(".todo__form");
   const input = addTodoContent.getElementsByTagName("input")[0];
-  const todoButton = addTodoContent.getElementsByTagName("button").addEventListener("click", () => {
+  const todoButton = document.querySelector(".todo__add");
+
+  todoButton.addEventListener("click", () => {
     //todoボタンをクリックしたら「TODOを追加する」というアクションをStoreに渡す
     var todoText = input.value;
     store.dispatch(addTodo(todoText));
@@ -31,9 +32,10 @@ onload = function(){
 
   //todoのフィルタリング
   //todoのフィルタリング要素を取得してる
-  let filterElement = ducument.getElementById(".todo__filter");
+  let filterElement = document.querySelector(".todo__filter");
   let filterContents = filterElement.getElementsByTagName("li");
-  filterContents.filter(value => value.nodeName != "#text").forEach(value => {
+  let filterContentsArray = [...filterContents]; //スプレッド演算子
+  filterContentsArray.filter(value => value.nodeName != "#text").forEach(value => {
     value.addEventListener("click", event => {
       //リンクをクリックしたら「TODOのフィルタリング状態を切り替える」アクションをStoreに渡す。
       let filterText = value.innerHTML;
@@ -41,9 +43,18 @@ onload = function(){
     });
   });
 
+  //初期値となるStateを取得
+  let initialState = todoApp({},{});
+  console.log(initialState);
 
+  //TODOを一つ追加する
+  let nextState = todoApp(initialState,
+    {
+      type: "add_todo",
+      id:1,
+      text: "First todo"
+    }
+  );
 
-
-  let contents = document.getElementById("main");
-  contents.innerHTML = store.getState().toString();
+  console.log(nextState);
 };
