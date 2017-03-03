@@ -1,6 +1,9 @@
-h1 {
-  display: flex;
-  color: #d11339;
-  font-size: 3.5rem;
-  margin-top: 200px;
-}
+@import "./_base/_normalize.scss";
+
+//layout
+@import "./_layout/_header.scss";
+@import "./_layout/_form.scss";
+
+//module
+@import "./_module/_list.scss";
+@import "./_module/_stetas.scss";

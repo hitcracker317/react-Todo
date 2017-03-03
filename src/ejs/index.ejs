@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>Document</title>
+  <title>TODO App</title>
   <!-- CSS -->
   <link rel="stylesheet" href="./asset/cssmin/style.min.css">
   <!-- js -->
@@ -11,7 +11,39 @@
 
 </head>
 <body>
-  <h1 class="heading">インコ大好き</h1>
-  <div id="main"></div>
+
+  <header>
+    <h1 class="heading">TODO APP</h1>
+  </header>
+
+  <div id="wrapper">
+
+    <div class="todo">
+      <!-- フォーム -->
+
+      <form onsubmit="" class="todo__form">
+        <input type="text" class="todo__textarea">
+        <button type="submit" class="todo__add">ADD</button>
+      </form>
+
+
+      <!-- フィルタリング -->
+      <ul class="todo__filter">
+        <li class="todo__filter--selected">すべて</li>
+        <li class="todo__filter--noselected"><a href="">未完了</a></li>
+        <li class="todo__filter--noselected"><a href="">完了</a></li>
+      </ul>
+
+      <!-- リスト -->
+      <ul class="todo__list">
+        <li class="todo__list--finish"><p>病院に行く</p></li>
+        <li><p>神経内科に行く</p></li>
+        <li><p>産婦人科に行く</p></li>
+        <li><p>生きる生きる生きる生きる生きる生きる生きる生きる生きる生きる生きる生きる生きる生きる生きる生きる</p></li>
+      </ul>
+    </div>
+
+  </div>
+
 </body>
 </html>
