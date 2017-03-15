@@ -1,5 +1,7 @@
-//ActionCreater
-//アプリケーションで行われる操作(Action)を記す
+//Action Creator。
+//アプリケーションでどんな操作が行わわれるのかの知識を持つ。
+//returnされるオブジェクトがAction。
+
 //Reduxではactionというディレクトリにファイルを作成する。
 
 let todoID = 0; //TODOのID

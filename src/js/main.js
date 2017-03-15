@@ -1,3 +1,6 @@
+import React from "react";
+import ReactDOM from "react-dom";
+
 import {createStore} from "redux"; //redux導入
 import {addTodo, toggleTodo, filerTodo} from "./action/todo.js"; //外部ファイルのメソッドをインポート
 import todoApp from "./reducer/todo.js"; //reducerを受け取る
